@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/',
   build: {
     assetsDir: 'assets',
     rollupOptions: {
@@ -16,8 +16,21 @@ export default defineConfig({
     },
   },
   server: {
-    headers: {
-      'Content-Type': 'application/javascript',
+    port: 3000,
+    open: true,
+    cors: true,
+    hmr: {
+      overlay: true,
     },
+    middlewareMode: false,
+    fs: {
+      strict: false,
+    },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom'],
+  },
+  esbuild: {
+    jsxInject: `import React from 'react'`,
   },
 })
