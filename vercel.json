@@ -9,28 +9,22 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/assets/(.*)",
+      "source": "/assets/(.*)",
+      "destination": "/assets/$1",
       "headers": {
         "cache-control": "public, max-age=31536000, immutable"
-      },
-      "continue": true
+      }
     },
     {
-      "src": "/logo.svg",
+      "source": "/logo.svg",
+      "destination": "/logo.svg",
       "headers": {
         "cache-control": "public, max-age=31536000, immutable",
         "Content-Type": "image/svg+xml"
-      },
-      "continue": true
+      }
     },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
