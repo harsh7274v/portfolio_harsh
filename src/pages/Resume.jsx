@@ -55,7 +55,7 @@ const ResumeSection = ({ section, index }) => {
   })
   
   const handleOpenCV = () => {
-    window.open('/resume.pdf', '_blank')
+    window.open('https://drive.google.com/file/d/1NAYC7AvnnKwiPjCgbSGpVF__vfBzJf9a/view?usp=sharing', '_blank')
   }
   
   return (
