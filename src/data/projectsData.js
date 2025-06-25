@@ -1,113 +1,125 @@
 export const projectsData = [
   {
-    id: 'ecommerce-platform',
-    title: 'E-commerce Platform',
-    description: 'A modern e-commerce platform with React, Node.js, and Stripe integration for seamless online shopping experiences.',
-    longDescription: 'This full-stack e-commerce solution provides businesses with a customizable online store. Built with React on the frontend and Node.js with Express on the backend, it features a responsive design, product catalog, cart management, user authentication, and secure checkout with Stripe.\n\nThe platform includes an admin dashboard for managing products, orders, and customer data, with comprehensive analytics to track sales performance. The clean, modern UI focuses on user experience with intuitive navigation and fast page loads optimized by code splitting and lazy loading.',
-    image: '/ecom.png',
-    categories: ['web', 'fullstack'],
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe', 'Redux', 'Tailwind CSS'],
+    id: 'anaquest',
+    title: 'AnaQuest',
+    description: 'AI-powered analytical practice & feedback platform for competitive exams and placements. Personalized quizzes, AI explanations, and adaptive learning.',
+    longDescription: 'AnaQuest is a smart EdTech platform that empowers students to practice analytical questions for competitive exams and placements with real-time feedback and adaptive learning. It delivers personalized quizzes, AI-generated explanations, and dynamic performance summaries. Built with Next.js, Tailwind CSS, MongoDB, and OpenAI GPT API.',
+    image: '/anaquest.png',
+    categories: ['web', 'fullstack', 'ai'],
+    technologies: ['Next.js', 'Tailwind CSS', 'MongoDB', 'OpenAI GPT API'],
     features: [
-      'Responsive product catalog with filtering and search',
-      'User authentication and profile management',
-      'Shopping cart with persistent storage',
-      'Secure payment processing with Stripe',
-      'Order tracking and history',
-      'Admin dashboard for inventory management'
+      'Dynamic question bank by exam type, topic, and difficulty',
+      'Custom quiz builder',
+      'AI-powered question and explanation generation',
+      'Performance dashboard and adaptive recommendations',
+      'Leaderboard and secure authentication'
     ],
     challenges: [
-      'Implementing real-time inventory updates',
-      'Optimizing image loading for performance',
-      'Building a secure payment flow'
+      'Real-time feedback and adaptive quiz logic',
+      'Integrating LLMs for question/explanation generation',
+      'Personalized analytics and recommendations'
     ],
     solutions: [
-      'Used WebSockets for real-time data synchronization',
-      'Implemented lazy loading and image optimization',
-      'Integrated Stripe\'s secure payment API with custom UI'
+      'Used OpenAI GPT API for dynamic content',
+      'Built adaptive quiz engine with React/Next.js',
+      'Integrated MongoDB for scalable data storage'
     ],
-    githubUrl: 'https://github.com/yourusername/ecommerce-platform',
-    liveUrl: 'https://ecommerce-platform-demo.com',
-    date: 'June 2024',
+    githubUrl: 'https://github.com/harsh7274v/anaquest/tree/main',
+    liveUrl: 'https://anaquest-ixfp.vercel.app',
+    date: '2025',
     featured: true
   },
   {
-    id: 'ai-image-generator',
-    title: 'AI Image Generator',
-    description: 'A web application that uses machine learning to generate unique images from text prompts.',
-    longDescription: "This project leverages OpenAI's DALL-E API to create unique images from text descriptions. Users can enter creative prompts and receive AI-generated images that match their descriptions.\n\nThe application features a clean, intuitive interface that makes it easy for users to generate, save, and share their creations. Built with React and Node.js, it includes user authentication, a gallery of past generations, and social sharing capabilities.",
-    image: '/ai.png',
-    categories: ['ai', 'web'],
-    technologies: ['React', 'Node.js', 'OpenAI API', 'MongoDB', 'AWS S3', 'Tailwind CSS'],
+    id: 'indago-job-tracking',
+    title: 'Indago Job Tracking',
+    description: 'A web-based job tracking application for job seekers to organize and monitor their job search progress.',
+    longDescription: 'Indago is a web-based job tracking application that allows job seekers to easily keep track of their job search progress. Users can add jobs, track application status, and receive updates. Features include authentication, CRUD for job listings, status pipeline, Cloudinary uploads, and data visualization with Recharts. Built with React, Redux Toolkit, TailwindCSS, Node.js, Express, and MongoDB.',
+    image: '/indago_job_tracking.png',
+    categories: ['web', 'productivity'],
+    technologies: ['React', 'Redux Toolkit', 'TailwindCSS', 'Node.js', 'Express', 'MongoDB', 'Cloudinary'],
     features: [
-      'Text-to-image generation using DALL-E',
-      'User account for saving and managing generated images',
-      'Image gallery with filtering options',
-      'Social media sharing integration',
-      'Customization options for image generation'
+      'User authentication and authorization with JWT',
+      'Create, read, update, and delete job listings',
+      'Track job application status with a custom pipeline',
+      'Upload job listing images using Cloudinary',
+      'Visualize application data with Recharts',
+      'Responsive design'
     ],
     challenges: [
-      'Managing API rate limits and costs',
-      'Optimizing image storage and delivery',
-      'Creating an intuitive UI for customization options'
+      'Managing job status updates and notifications',
+      'Integrating image uploads and data visualization',
+      'Ensuring secure authentication and data storage'
     ],
     solutions: [
-      'Implemented request queuing and caching',
-      'Used AWS S3 for efficient image storage and CloudFront for delivery',
-      'Designed a step-by-step interface with real-time previews'
+      'Used Redux Toolkit for state management',
+      'Integrated Cloudinary for media uploads',
+      'Implemented JWT for secure authentication'
     ],
-    githubUrl: 'https://github.com/yourusername/ai-image-generator',
-    liveUrl: 'https://ai-image-generator-demo.com',
-    date: 'September 2024',
+    githubUrl: 'https://github.com/harsh7274v/indago_job_tracking',
+    liveUrl: 'https://indago-job.netlify.app/landing',
+    date: '2025',
     featured: true
   },
   {
-    id: 'fitness-tracker',
-    title: 'Fitness Tracker App',
-    description: 'A mobile-first web application for tracking workouts, nutrition, and health metrics with data visualization.',
-    longDescription: 'This comprehensive fitness tracker helps users monitor their workout routines, nutrition, and overall health progress. The application provides personalized workout plans, tracks calorie intake, and visualizes progress through interactive charts.\n\nBuilt with React for the frontend and Firebase for the backend, it features real-time data synchronization, offline support, and cross-device compatibility. The clean, intuitive interface makes it easy for users to log workouts, meals, and track their fitness journey.',
-    image: '/fitness.png',
-    categories: ['web', 'mobile'],
-    technologies: ['React', 'Firebase', 'Chart.js', 'Progressive Web App', 'Tailwind CSS'],
+    id: 'gemini-ai',
+    title: 'Gemini AI',
+    description: 'An interactive web app for chatting with Google Gemini Pro AI, featuring authentication and modern UI.',
+    longDescription: 'Gemini AI is an innovative web application that brings an interactive chat experience with the help of Google Gemini Pro API. Users can chat with Gemini AI, with different features for authenticated and non-authenticated users. Built with Node.js, React.js, MongoDB, and Redux Toolkit, it supports Google OAuth V2, chat history, and a clean, modern interface.',
+    image: '/gemini_ai.png',
+    categories: ['web', 'ai'],
+    technologies: ['React', 'Redux Toolkit', 'Node.js', 'Express', 'MongoDB', 'Google OAuth'],
     features: [
-      'Customizable workout plans and routines',
-      'Nutrition tracking with calorie and macro calculations',
-      'Progress visualization with interactive charts',
-      'Goal setting and achievement tracking',
-      'Workout timer and exercise demonstrations',
-      'Social features for sharing achievements'
+      'Interactive chat with Gemini AI',
+      'Google OAuth V2 authentication',
+      'Limited and unlimited chat for different user types',
+      'Chat history management',
+      'Modern, responsive UI',
+      'Location tracking features'
     ],
     challenges: [
-      'Creating an intuitive mobile interface for quick logging',
-      'Implementing accurate calorie and nutritional calculations',
-      'Designing meaningful data visualizations'
+      'Integrating Google Gemini Pro API',
+      'Managing authentication and user sessions',
+      'Handling chat history and user limits'
     ],
     solutions: [
-      'Used extensive user testing to refine the mobile UX',
-      'Integrated a comprehensive nutritional database',
-      'Developed custom Chart.js configurations for insightful visualizations'
+      'Used Redux Toolkit for state management',
+      'Implemented Google OAuth for secure login',
+      'Built scalable backend with Node.js and MongoDB'
     ],
-    githubUrl: 'https://github.com/yourusername/fitness-tracker',
-    liveUrl: 'https://fitness-tracker-demo.com',
-    date: 'December 2023',
+    githubUrl: 'https://github.com/harsh7274v/gemini_ai',
+    liveUrl: 'https://geminichatai.netlify.app/',
+    date: '2025',
     featured: true
   },
   {
-    id: 'smart-home-dashboard',
-    title: 'Smart Home Dashboard',
-    description: 'A centralized dashboard for controlling and monitoring smart home devices with automation capabilities.',
-    image: '/smarthome.jpg',
-    categories: ['web', 'iot'],
-    technologies: ['React', 'Node.js', 'MQTT', 'WebSockets', 'Chart.js', 'Tailwind CSS'],
+    id: 'readme-generator',
+    title: 'README Generator',
+    description: 'AI-powered web app to generate professional README files for GitHub repositories using Google Gemini AI.',
+    longDescription: 'README Generator is a web application that generates professional README files for GitHub repositories using Google\'s Gemini AI. Features include markdown preview, copy/download functionality, and a beautiful UI built with Next.js, TypeScript, and Tailwind CSS.',
+    image: '/readme_generator.png',
+    categories: ['web', 'ai', 'productivity'],
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Google Gemini AI', 'React Markdown'],
     features: [
-      'Unified control for multiple smart home devices',
-      'Real-time monitoring and status updates',
-      'Customizable automation rules',
-      'Energy usage tracking and optimization',
-      'Voice control integration'
+      'Generate README files from GitHub URLs',
+      'Markdown preview and editing',
+      'Copy to clipboard and download as README.md',
+      'Modern, responsive UI',
+      'Powered by Google Gemini AI'
     ],
-    githubUrl: 'https://github.com/yourusername/smart-home-dashboard',
-    liveUrl: 'https://smart-home-dashboard-demo.com',
-    date: 'March 2024'
+    challenges: [
+      'Integrating Gemini AI for content generation',
+      'Parsing and validating GitHub URLs',
+      'Ensuring markdown compatibility and preview'
+    ],
+    solutions: [
+      'Used Google Gemini AI API for README generation',
+      'Implemented robust URL validation and error handling',
+      'Used React Markdown for live preview'
+    ],
+    githubUrl: 'https://github.com/harsh7274v/readme-generator',
+    liveUrl: 'https://readme-generator-ru75.vercel.app',
+    date: '2025',
+    featured: true
   },
   {
     id: 'language-learning-app',

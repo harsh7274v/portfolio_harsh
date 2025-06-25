@@ -31,7 +31,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="mt-4 text-dark-600 dark:text-gray-400 max-w-xs">
-              Full Stack Developer & Machine Learning Enthusiast. Always learning.
+              Full Stack Developer & Blockchain Enthusiast. Always learning.
             </p>
           </div>
 

@@ -2,7 +2,7 @@ export const experienceData = [
   {
     company: "Outlier.ai",
     role: "Coding Expert - AI Training",
-    period: "2024 - Present",
+    period: "Nov 2024 - Jan 2025",
     description: "Working remotely as a coding expert to train AI models and improve their programming capabilities.",
     achievements: [
       "Contributing to AI model training through code review and optimization",

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiMenu, FiX, FiMoon, FiSun } from 'react-icons/fi'
 import { useTheme } from '../../context/ThemeContext'
@@ -9,14 +9,15 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Experience', path: '/experience' },
-    { name: 'Education', path: '/education' },
-    { name: 'Resume', path: '/resume' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Projects', path: '/' },
+    { name: 'Experience', path: '/' },
+    { name: 'Certificates', path: '/' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/' },
   ]
 
   useEffect(() => {
@@ -52,6 +53,33 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
+  const handleNavClick = (path, name) => {
+    const sectionMap = {
+      'Projects': 'projects-section',
+      'Experience': 'experience-section',
+      'Certificates': 'certificates-section',
+      'Contact': 'contact-section',
+    };
+    if (name === 'Home') {
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+      }
+    } else if (sectionMap[name]) {
+      if (location.pathname === '/') {
+        const section = document.getElementById(sectionMap[name]);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate('/', { state: { scrollTo: sectionMap[name] } });
+      }
+    } else {
+      navigate(path);
+    }
+  }
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? 'bg-white/90 dark:bg-dark-900/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
@@ -73,17 +101,18 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <NavLink 
-                key={link.name}
-                to={link.path}
-                className={({ isActive }) => 
-                  `nav-link ${isActive ? 'active' : ''}`
-                }
-              >
-                {link.name}
-              </NavLink>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = (link.name === 'Projects' && location.pathname === '/') || (link.path !== '/' && location.pathname === link.path);
+              return (
+                <span
+                  key={link.name}
+                  className={`nav-link cursor-pointer ${isActive ? 'active' : ''}`}
+                  onClick={() => handleNavClick(link.path, link.name)}
+                >
+                  {link.name}
+                </span>
+              );
+            })}
             
             {/* Theme toggle */}
             <button 
@@ -136,18 +165,17 @@ const Navbar = () => {
           >
             <nav className="h-full flex flex-col">
               <div className="py-8 px-4">
-                {navLinks.map((link) => (
-                  <NavLink 
-                    key={link.name}
-                    to={link.path}
-                    className={({ isActive }) => 
-                      `block py-4 text-xl font-medium border-b border-gray-100 dark:border-dark-700 
-                      ${isActive ? 'text-primary-500' : 'text-dark-600 dark:text-gray-300'}`
-                    }
-                  >
-                    {link.name}
-                  </NavLink>
-                ))}
+                <nav className="flex flex-col space-y-2">
+                  {navLinks.map(link => (
+                    <span
+                      key={link.name}
+                      className="text-dark-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors cursor-pointer"
+                      onClick={() => handleNavClick(link.path, link.name)}
+                    >
+                      {link.name}
+                    </span>
+                  ))}
+                </nav>
               </div>
             </nav>
           </motion.div>
