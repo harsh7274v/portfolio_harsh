@@ -10,18 +10,11 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       text: "Hello! I'm your AI assistant. How can I help you today?",
-      sender: 'bot',
-      suggestions: [
-        { text: "Tell me about your projects", action: "projects" },
-        { text: "What skills do you have?", action: "skills" },
-        { text: "How can I contact you?", action: "contact" },
-        { text: "What's your experience?", action: "experience" },
-        { text: "Tell me about your education", action: "education" },
-        { text: "Can I see your resume?", action: "resume" }
-      ]
+      sender: 'bot'
     }
   ]);
   const [inputMessage, setInputMessage] = useState('');
+  const [hasPrompted, setHasPrompted] = useState(false);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -35,49 +28,25 @@ const Chatbot = () => {
   const handleSuggestionClick = (suggestion) => {
     let response = "";
     switch (suggestion.action) {
-      case "projects":
-        response = "I have worked on several interesting projects. Let me show you!";
-        navigate('/projects');
+      case "frontend":
+        response = "My frontend skills include React, Next.js, JavaScript, TypeScript, Material UI, Tailwind CSS, and more.";
         break;
-      case "skills":
-        response = "I specialize in web development, with expertise in React, Node.js, and more. Check out my skills section!";
-        navigate('/skills');
+      case "backend":
+        response = "My backend skills include Node.js, Express.js, Spring Boot, MongoDB, and more.";
         break;
-      case "contact":
-        response = "You can reach me through the contact form or connect with me on social media. Let me take you there!";
-        navigate('/contact');
+      case "tools":
+        response = "I use tools like Git, VS Code, Postman, and more.";
         break;
-      case "experience":
-        response = "I have gained valuable experience through various roles and projects. Let me show you my professional journey!";
-        navigate('/experience');
-        break;
-      case "education":
-        response = "I have a strong educational background in technology. Let me share my academic achievements with you!";
-        navigate('/education');
-        break;
-      case "resume":
-        response = "You can view my detailed resume here. It includes all my professional experience, education, and skills!";
-        navigate('/resume');
+      case "hobbies":
+        response = "My hobbies include coding, reading tech blogs, trading, and going to the gym.";
         break;
       default:
         response = "I'm not sure about that. Could you try something else?";
     }
-
     setMessages(prev => [
       ...prev,
       { text: suggestion.text, sender: 'user' },
-      { 
-        text: response,
-        sender: 'bot',
-        suggestions: [
-          { text: "Tell me about your projects", action: "projects" },
-          { text: "What skills do you have?", action: "skills" },
-          { text: "How can I contact you?", action: "contact" },
-          { text: "What's your experience?", action: "experience" },
-          { text: "Tell me about your education", action: "education" },
-          { text: "Can I see your resume?", action: "resume" }
-        ]
-      }
+      { text: response, sender: 'bot' }
     ]);
   };
 
@@ -89,20 +58,36 @@ const Chatbot = () => {
     setMessages(prev => [...prev, { text: inputMessage, sender: 'user' }]);
     setInputMessage('');
 
-    // Simulate bot response
+    // If this is the first user message, show the prompt and options
+    if (!hasPrompted) {
+      setHasPrompted(true);
+      setTimeout(() => {
+        setMessages(prev => [
+          ...prev,
+          {
+            text: "What do you want to know about me?",
+            sender: 'bot',
+            suggestions: [
+              { text: "Frontend Skills", action: "frontend" },
+              { text: "Backend Skills", action: "backend" },
+              { text: "Tools", action: "tools" },
+              { text: "Hobbies", action: "hobbies" }
+            ]
+          }
+        ]);
+      }, 500);
+      return;
+    }
+
+    // Simulate bot response for subsequent messages
     setTimeout(() => {
-      setMessages(prev => [...prev, { 
-        text: "I'm a demo chatbot. You can select from the suggestions below to learn more about me!", 
-        sender: 'bot',
-        suggestions: [
-          { text: "Tell me about your projects", action: "projects" },
-          { text: "What skills do you have?", action: "skills" },
-          { text: "How can I contact you?", action: "contact" },
-          { text: "What's your experience?", action: "experience" },
-          { text: "Tell me about your education", action: "education" },
-          { text: "Can I see your resume?", action: "resume" }
-        ]
-      }]);
+      setMessages(prev => [
+        ...prev,
+        {
+          text: "I'm a demo chatbot. Please select an option above to learn more!",
+          sender: 'bot'
+        }
+      ]);
     }, 1000);
   };
 
@@ -110,12 +95,12 @@ const Chatbot = () => {
     <>
       {/* Chatbot Toggle Button */}
       <motion.button
-        className="fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full bg-accent-500 text-white shadow-lg flex items-center justify-center hover:bg-accent-600 transition-colors"
+        className="fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full bg-blue-500 text-white shadow-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        {isOpen ? <FiX size={24} /> : <FiMessageSquare size={24} />}
+        {isOpen ? <FiX size={24} color="#fff" /> : <FiMessageSquare size={24} color="#fff" />}
       </motion.button>
 
       {/* Chat Window */}
@@ -130,7 +115,7 @@ const Chatbot = () => {
             {/* Chat Header */}
             <div className="bg-accent-500 p-4 flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <BsRobot className="text-white" size={20} />
+                <BsRobot className="text-blue-500" size={20} />
                 <span className="text-white font-semibold">AI Assistant</span>
               </div>
               <button 

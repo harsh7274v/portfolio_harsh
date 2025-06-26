@@ -48,7 +48,11 @@ const ProjectCard = ({ project }) => {
             mx: 'auto',
             my: 2,
             display: 'block',
+            userSelect: 'none',
+            pointerEvents: 'none',
           }}
+          onContextMenu={e => e.preventDefault()}
+          draggable={false}
         />
       </Box>
       {id === 'anaquest' ? (

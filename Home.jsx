@@ -254,8 +254,12 @@ const Home = () => {
                     height: { xs: 220, sm: 280, md: 350 },
                     border: '4px solid',
                     borderColor: 'primary.main',
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                    userSelect: 'none',
+                    pointerEvents: 'none',
                   }}
+                  onContextMenu={e => e.preventDefault()}
+                  draggable={false}
                 />
                 <Box
                   sx={{

@@ -12,8 +12,7 @@ import Footer from './components/layout/Footer'
 
 // Page components
 import Home from '../Home'
-
-
+import Blog from './pages/Blog'
 import NotFound from './pages/NotFound'
 
 // Utility components
@@ -137,7 +136,7 @@ function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
-           
+            <Route path="/blog" element={<Blog />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
