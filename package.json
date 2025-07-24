@@ -2,6 +2,10 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.16.0",
+    "npm": ">=10.0.0"
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -23,13 +27,6 @@
     "react-swipeable": "^7.0.2",
     "styled-components": "^6.1.17",
     "web-vitals": "^4.2.4"
-  },
-  "overrides": {
-    "glob": "^11.0.0",
-    "rimraf": "^6.0.1",
-    "q": "^1.5.1",
-    "sourcemap-codec": "@jridgewell/sourcemap-codec",
-    "rollup-plugin-terser": "@rollup/plugin-terser"
   },
   "scripts": {
     "start": "react-scripts start",
